@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"edu.towson.cis.cosc442.project1.monopoly","l":"Cell"},{"p":"edu.towson.cis.cosc442.project1.monopoly","l":"PropertyCell"}];updateSearchResults();
