@@ -15,7 +15,10 @@ public class GameBoard {
 		addCell(go);
 	}
 
-    public void addCard(Card card) {
+    /** 
+	 * @param card
+	 */
+	public void addCard(Card card) {
         if(card.getCardType() == Card.TYPE_CC) {
             communityChestCards.add(card);
         } else {
@@ -23,10 +26,16 @@ public class GameBoard {
         }
     }
 	
+	/** 
+	 * @param cell
+	 */
 	public void addCell(Cell cell) {
 		cells.add(cell);
 	}
 	
+	/** 
+	 * @param cell
+	 */
 	public void addCell(PropertyCell cell) {
 		String colorGroup = cell.getColorGroup();
 		int propertyNumber = getPropertyNumberForColor(colorGroup);
@@ -34,28 +43,45 @@ public class GameBoard {
         cells.add(cell);
 	}
 
-    public Card drawCCCard() {
+    /** 
+	 * @return Card
+	 */
+	public Card drawCCCard() {
         Card card = (Card)communityChestCards.get(0);
         communityChestCards.remove(0);
         addCard(card);
         return card;
     }
 
-    public Card drawChanceCard() {
+    /** 
+	 * @return Card
+	 */
+	public Card drawChanceCard() {
         Card card = (Card)chanceCards.get(0);
         chanceCards.remove(0);
         addCard(card);
         return card;
     }
 
+	/** 
+	 * @param newIndex
+	 * @return Cell
+	 */
 	public Cell getCell(int newIndex) {
 		return (Cell)cells.get(newIndex);
 	}
 	
+	/** 
+	 * @return int
+	 */
 	public int getCellNumber() {
 		return cells.size();
 	}
 	
+	/** 
+	 * @param color
+	 * @return PropertyCell[]
+	 */
 	public PropertyCell[] getPropertiesInMonopoly(String color) {
 		PropertyCell[] monopolyCells = 
 			new PropertyCell[getPropertyNumberForColor(color)];
@@ -73,6 +99,10 @@ public class GameBoard {
 		return monopolyCells;
 	}
 	
+	/** 
+	 * @param name
+	 * @return int
+	 */
 	public int getPropertyNumberForColor(String name) {
 		Integer number = (Integer)colorGroups.get(name);
 		if(number != null) {
@@ -81,6 +111,10 @@ public class GameBoard {
 		return 0;
 	}
 
+	/** 
+	 * @param string
+	 * @return Cell
+	 */
 	public Cell queryCell(String string) {
 		for(int i = 0; i < cells.size(); i++){
 			Cell temp = (Cell)cells.get(i); 
@@ -91,6 +125,10 @@ public class GameBoard {
 		return null;
 	}
 	
+	/** 
+	 * @param string
+	 * @return int
+	 */
 	public int queryCellIndex(String string){
 		for(int i = 0; i < cells.size(); i++){
 			Cell temp = (Cell)cells.get(i); 

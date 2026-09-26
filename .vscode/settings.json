@@ -5,4 +5,5 @@
         "lib/**/*.jar"
     ],
     "java.debug.settings.onBuildFailureProceed": true
+    
 }
